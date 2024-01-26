@@ -14,7 +14,6 @@ namespace az_webapp_trev_vs2022.Pages
 
         public void OnGet()
         {
-            throw new Exception("Testing Insights");
         }
     }
 
