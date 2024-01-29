@@ -49,18 +49,11 @@ jobs:
         with:
           name: .net-app
       
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_8AE42956B2D54A01A5C1CF0F94CAB067 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_A92869290E6047D2BA14CCE88A25CE30 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_76CFA1205944474B8B7AC4E92193A344 }}
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'az-webapp-trev-vs2022'
-          slot-name: 'Staging'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_8C9D40806FD1484E9783C5D0A335FFA0 }}
           package: .
-          
